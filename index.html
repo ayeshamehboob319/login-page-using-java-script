@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            color: #333;
+        }
+
+        header {
+            background-color: var(--light);
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--border);
+            transition: 0.3s;
+        }
+
+        header h1 {
+            margin: 0 0 15px;
+            font-size: 32px;
+            color: #304568;
+        }
+
+        .color-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .color-btn {
+            width: 100px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background-color: #eeeeee;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .color-btn.selected {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 35px 15px;
+        }
+
+        .login-box {
+            width: 430px;
+            max-width: 100%;
+            padding: 28px 32px 40px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+        }
+
+        .login-box h2 {
+            margin: 0 0 10px;
+            text-align: center;
+            font-size: 30px;
+            color: #304568;
+        }
+
+        .subtitle {
+            margin: 0 0 30px;
+            text-align: center;
+            color: #777;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 22px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background-color: var(--input);
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        #message {
+            margin: 18px 0 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 17px;
+            text-align: center;
+            background-color: var(--light);
+            border-top: 2px solid var(--border);
+            color: #304568;
+        }
+
+        body[data-theme="blue"] {
+            --primary: #2864e8;
+            --light: #bfdbfe;
+            --input: #eff6ff;
+            --border: #b4cbea;
+        }
+
+        body[data-theme="green"] {
+            --primary: #239653;
+            --light: #c9f2d6;
+            --input: #effcf3;
+            --border: #a9d9b7;
+        }
+
+        body[data-theme="yellow"] {
+            --primary: #d4a500;
+            --light: #fff0ae;
+            --input: #fffbea;
+            --border: #ead68a;
+        }
+
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 26px;
+            }
+
+            .login-box {
+                padding: 25px 22px;
+            }
+
+            .color-btn {
+                width: 90px;
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="blue">
+
+    <header id="pageHeader">
+        <h1>User Login System</h1>
+
+        <div class="color-buttons">
+            <button type="button"
+                    class="color-btn selected"
+                    data-color="blue">
+                Blue
+            </button>
+
+            <button type="button"
+                    class="color-btn"
+                    data-color="green">
+                Green
+            </button>
+
+            <button type="button"
+                    class="color-btn"
+                    data-color="yellow">
+                Yellow
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-box">
+            <h2>Login Form</h2>
+
+            <p class="subtitle">Please enter your details</p>
+
+            <form id="loginForm">
+
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p id="message" role="status"></p>
+        </div>
+    </main>
+
+    <footer id="pageFooter">
+        My Website | Thank you for visiting!
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
